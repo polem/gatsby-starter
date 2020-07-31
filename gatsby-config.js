@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -5,6 +7,14 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-chakra-ui",
+      options: {
+        isResettingCSS: true,
+        isUsingColorMode: true,
+        portalZIndex: 40,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,5 +40,40 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: process.env.URL || "http://localhost:8000",
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, "src/components"),
+          "@": path.resolve(__dirname, "src"),
+        },
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svgs\/.*\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        /*custom: {
+          families: ["Font1", "Font2"],
+          urls: ["/fonts/styles.css"],
+        },*/
+      },
+    },
   ],
 }

@@ -10,7 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import Footer from "./footer"
+
+import { Container, Box } from "@chakra-ui/layout"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,23 +26,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+    <Box d="flex" flexDirection="column" minHeight="100vh">
+      <Header siteTitle={data.site.siteMetadata.title} mb={8}/>
+      <Container flexGrow="1">
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      </Container>
+      <Footer mt={8} />
+    </Box>
   )
 }
 
