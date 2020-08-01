@@ -11,6 +11,14 @@ const IndexPage = () => (
     <Heading as="h1" size="lg" mb={4}>Hi people</Heading>
     <Text>Welcome to your new Gatsby site.</Text>
     <Text>Now go build something great.</Text>
+
+    <Heading as="h1" size="lg" mb={4}>Hi people</Heading>
+    <Text>Welcome to your new Gatsby site.</Text>
+    <Text>Now go build something great.</Text>
+
+    <Heading as="h1" size="lg" mb={4}>Hi people</Heading>
+    <Text>Welcome to your new Gatsby site.</Text>
+    <Text>Now go build something great.</Text>
   </Layout>
 )
 
