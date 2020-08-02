@@ -29,7 +29,6 @@ const StyledStickyHeader = styled(StickyHeader)(
     transform: translate(0, -100%);
   `,
   props => props.isVisible && `transform: translate(0, 0);`
-
 )
 
 

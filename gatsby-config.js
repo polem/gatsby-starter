@@ -5,6 +5,7 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    siteUrl: process.env.SITE_URL || 'http://localhost:8000'
   },
   plugins: [
     {
@@ -69,6 +70,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
+        google: {
+          families: ['Roboto', 'Droid Sans']
+        }
         /*custom: {
           families: ["Font1", "Font2"],
           urls: ["/fonts/styles.css"],
